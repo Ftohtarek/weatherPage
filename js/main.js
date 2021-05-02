@@ -2,12 +2,6 @@
 let locationInfo = {}
 let currentWeatherInfo = {}
 let ForecastWeatherInfo = []
-let compas = {
-    N: "North",
-    S: "South",
-    E: "East",
-    W: "West"
-}
 let days = ["Sunday", "Monday", "Tuseday", "Wensday", "Thursday", "Friday", "Saturday"]
 let Months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",]
 let search = document.getElementById("search");
@@ -73,7 +67,7 @@ function setWeatherInfo() {
     document.querySelector(".card .card-body .card-text img").src = `${currentWeatherInfo.icon}`
     document.querySelector(".card .card-body p").innerHTML = currentWeatherInfo.condation
     document.querySelector(".card .card-footer .wind-speed").innerHTML = currentWeatherInfo.windSpeed
-    document.querySelector(".card .card-footer .wind-dir").innerHTML = compas[currentWeatherInfo.direction]
+    document.querySelector(".card .card-footer .wind-dir").innerHTML = currentWeatherInfo.direction;
 
     // forecat day
     for (let i = 0; i < ForecastWeatherInfo.length; i++) {
@@ -95,11 +89,8 @@ search.addEventListener("keyup", function () {
     if (val.test(key)){
         sequence(key)
         search.classList.remove("alert")
-        console.log(true)
-
     }
     else{
         search.classList.add("alert")
-        console.log(false)
     }
 })
